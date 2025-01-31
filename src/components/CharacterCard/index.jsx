@@ -1,17 +1,19 @@
-function CharacterCard() {
-    return ( 
-<div class="card-block">
+function CharacterCard({character}) {
+        return ( 
+            <div class="card-block">
                 <div class="card-img">
-                    <img src="/img/hermione.png" alt="гермиона"/>
+                    <img src={'http://localhost:3000/static/'+ character.image} alt=''/> 
                 </div>
 
                 <div class="card-text">
-                    <h3>Hermione Granger</h3>
-                    <p>Actor: Emma Watson</p>
-                    <p>Gender: female</p>
-                    <p>House: Гриффиндор</p>
-                    <p>Wand core: dragon heartstring</p>
-                    <p>Alive: yes </p>
+
+                    <div>
+                        <h3>{character.name}</h3>
+                        <p>age: {character.age}</p>
+
+                    </div>
+                
+            
                 </div>
             </div>
      );

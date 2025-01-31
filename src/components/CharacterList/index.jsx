@@ -2,12 +2,17 @@ import CharacterCard from '../CharacterCard';
 
 
 
-function CharacterList() {
+function CharacterList({characters}) {
     return ( 
+      <>
         <div class="cards">
-           <CharacterCard/>
-           <CharacterCard/>
+            {
+               characters && characters.map((character) => {
+                  return <CharacterCard character={character}/>
+               })
+            }
         </div>
+      </>
      );
 }
 

@@ -1,13 +1,39 @@
 
+import { useEffect, useState } from 'react';
 import './App.css';
 import CharacterList from './components/CharacterList';
 import Header from './components/header';
 
 function App() {
+  const [schools,setSchools] = useState([])
+  const [characters,setCharacters] = useState([])
+
+
+  
+
+  useEffect(() => {
+
+    fetch('http://localhost:3000/characters').then((data) => {
+      return data.json();
+    }).then((characters) => {
+      console.log(characters);
+      setCharacters(characters);
+    })
+
+
+    fetch('http://localhost:3000/schools').then((data) => {
+      return data.json();
+    }).then((schools) => {
+      console.log(schools);
+      setSchools(schools);
+    })
+
+  }, []);
+  
   return (
     <div className="App">
-      <Header/>
-      <CharacterList/>
+      <Header schools={schools}/>
+      <CharacterList characters={characters}/>
     </div>
   );
 }
