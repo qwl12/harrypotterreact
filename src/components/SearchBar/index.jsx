@@ -17,7 +17,6 @@ function SearchBar({schools}) {
             </select>
         </label>
         
-        
     </div>
     );
 }
